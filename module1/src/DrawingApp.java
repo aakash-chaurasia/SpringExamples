@@ -1,4 +1,3 @@
-package module1;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -21,6 +20,5 @@ public class DrawingApp {
 
         triangle.draw();
         DrawingApp d = new DrawingApp();
-        System.out.println(d.c.getPackage());
     }
 }
