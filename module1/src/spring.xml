@@ -5,7 +5,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="triangle" class="Triangle">
+    <bean id="triangle" class="module1.Triangle">
+        <property name="type" value="Equilateral"/>
     </bean>
 
 </beans>
