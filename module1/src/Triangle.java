@@ -4,6 +4,21 @@
 public class Triangle {
     public String type;
 
+    public int getHeight() {
+        return height;
+    }
+
+    public Triangle(String type, int height) {
+        this.type = type;
+        this.height = height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int height;
+
     public Triangle(String type) {
         this.type = type;
     }
@@ -20,6 +35,6 @@ public class Triangle {
         this.type = type;
     }
     public void draw() {
-        System.out.println(type + " Triangle drawn");
+        System.out.println(getType() + " Triangle drawn of height " + getHeight());
     }
 }

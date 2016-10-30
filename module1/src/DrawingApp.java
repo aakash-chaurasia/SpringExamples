@@ -16,9 +16,11 @@ public class DrawingApp {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         BeanFactory factory = new XmlBeanFactory(new FileSystemResource("module1/src/spring.xml"));
-        Triangle triangle = (Triangle) context.getBean("triangle");
-
-        triangle.draw();
-        DrawingApp d = new DrawingApp();
+        Triangle triangleWith1Constructor = (Triangle) context.getBean("triangleWith1Constructor");
+        triangleWith1Constructor.draw();
+        Triangle triangleWith2Constructor = (Triangle) context.getBean("triangleWith2Constructor");
+        triangleWith2Constructor.draw();
+        Triangle triangleWithProperty = (Triangle) context.getBean("triangleWithProperty");
+        triangleWithProperty.draw();
     }
 }
