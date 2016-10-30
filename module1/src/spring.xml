@@ -74,4 +74,13 @@
             </list>
         </property>
     </bean>
+    <bean id="line" class="Line" autowire="byName"/>
+    <bean id="startPoint" class="Point">
+        <property name="x" value="25"/>
+        <property name="y" value="17"/>
+    </bean>
+    <bean id="endPoint" class="Point">
+        <property name="x" value="29"/>
+        <property name="y" value="45"/>
+    </bean>
 </beans>

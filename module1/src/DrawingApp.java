@@ -39,6 +39,7 @@ public class DrawingApp {
         rectangleWithInnerBeanAlias.draw();
         Polygon polygon = (Polygon) context.getBean("polygon");
         polygon.draw();
-
+        Line line = (Line) context.getBean("line");
+        line.draw();
     }
 }
