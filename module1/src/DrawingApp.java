@@ -3,6 +3,9 @@ import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.messaging.PollableChannel;
+
+import java.awt.*;
 
 
 /**
@@ -34,5 +37,8 @@ public class DrawingApp {
         rectangleWithInnerBean.draw();
         Rectangle rectangleWithInnerBeanAlias = (Rectangle) context.getBean("rectangleWithInnerBeanAlias");
         rectangleWithInnerBeanAlias.draw();
+        Polygon polygon = (Polygon) context.getBean("polygon");
+        polygon.draw();
+
     }
 }

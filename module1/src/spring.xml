@@ -63,5 +63,15 @@
         </property>
     </bean>
     <alias name="rectangleWithInnerBean" alias="rectangleWithInnerBeanAlias"/>
-
+    <bean id="polygon" class="Polygon">
+        <property name="points">
+            <list>
+                <ref bean="zeroPoint"/>
+                <ref bean="point2"/>
+                <ref bean="point3"/>
+                <ref bean="point4"/>
+                <ref bean="zeroPoint"/>
+            </list>
+        </property>
+    </bean>
 </beans>
