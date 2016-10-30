@@ -28,6 +28,7 @@ public class DrawingApp {
         triangleWithStringConstructor.draw();
         Triangle triangleWithintConstructor = (Triangle) context.getBean("triangleWithIntConstructor");
         triangleWithintConstructor.draw();
-
+        Rectangle rectangle = (Rectangle) context.getBean("rectangle");
+        rectangle.draw();
     }
 }

@@ -24,4 +24,26 @@
     <bean id="triangleWithIntConstructor" class="Triangle">
         <constructor-arg type="java.lang.Integer" value="25"/>
     </bean>
+    <bean id="zeroPoint" class="Point">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+    <bean id="point2" class="Point">
+        <property name="x" value="0"/>
+        <property name="y" value="10"/>
+    </bean>
+    <bean id="point3" class="Point">
+        <property name="x" value="20"/>
+        <property name="y" value="10"/>
+    </bean>
+    <bean id="point4" class="Point">
+        <property name="x" value="20"/>
+        <property name="y" value="0"/>
+    </bean>
+    <bean id="rectangle" class="Rectangle">
+        <property name="pointA" ref="zeroPoint"/>
+        <property name="pointB" ref="point2"/>
+        <property name="pointC" ref="point3"/>
+        <property name="pointD" ref="point4"/>
+    </bean>
 </beans>
