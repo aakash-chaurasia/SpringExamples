@@ -32,5 +32,7 @@ public class DrawingApp {
         rectangle.draw();
         Rectangle rectangleWithInnerBean = (Rectangle) context.getBean("rectangleWithInnerBean");
         rectangleWithInnerBean.draw();
+        Rectangle rectangleWithInnerBeanAlias = (Rectangle) context.getBean("rectangleWithInnerBeanAlias");
+        rectangleWithInnerBeanAlias.draw();
     }
 }

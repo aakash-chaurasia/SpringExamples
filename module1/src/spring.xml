@@ -62,5 +62,6 @@
             </bean>
         </property>
     </bean>
+    <alias name="rectangleWithInnerBean" alias="rectangleWithInnerBeanAlias"/>
 
 </beans>
