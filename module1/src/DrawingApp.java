@@ -30,5 +30,7 @@ public class DrawingApp {
         triangleWithintConstructor.draw();
         Rectangle rectangle = (Rectangle) context.getBean("rectangle");
         rectangle.draw();
+        Rectangle rectangleWithInnerBean = (Rectangle) context.getBean("rectangleWithInnerBean");
+        rectangleWithInnerBean.draw();
     }
 }

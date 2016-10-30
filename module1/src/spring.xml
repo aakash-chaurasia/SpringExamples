@@ -46,4 +46,21 @@
         <property name="pointC" ref="point3"/>
         <property name="pointD" ref="point4"/>
     </bean>
+    <bean id="rectangleWithInnerBean" class="Rectangle">
+        <property name="pointA" ref="zeroPoint"/>
+        <property name="pointB" ref="point2"/>
+        <property name="pointC" >
+            <bean class="Point">
+                <property name="x" value="10"/>
+                <property name="y" value="5"/>
+            </bean>
+        </property>
+        <property name="pointD">
+            <bean class="Point">
+                <property name="x" value="10"/>
+                <property name="y" value="0"/>
+            </bean>
+        </property>
+    </bean>
+
 </beans>
