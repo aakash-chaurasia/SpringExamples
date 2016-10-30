@@ -4,20 +4,29 @@
 public class Triangle {
     public String type;
 
-    public int getHeight() {
+    public Integer getHeight() {
         return height;
+    }
+
+    public Triangle(Integer height) {
+        this.height = height;
     }
 
     public Triangle(String type, int height) {
         this.type = type;
         this.height = height;
+
     }
 
     public void setHeight(int height) {
         this.height = height;
     }
 
-    public int height;
+    public Integer height;
+
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
 
     public Triangle(String type) {
         this.type = type;
