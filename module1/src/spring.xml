@@ -83,4 +83,5 @@
         <property name="x" value="29"/>
         <property name="y" value="45"/>
     </bean>
+	<bean id="lineByType" class="Line" autowire="byType"/>
 </beans>
