@@ -44,5 +44,18 @@ public class DrawingApp {
         //example lof application context aware
         Pentagon pentagon = (Pentagon) context.getBean("pentagon");
         pentagon.draw();
+        //example of singleton bean, always creates beans in start
+        pentagon.setPointA(new Point(25, 25));
+        Pentagon pentagon1 = (Pentagon) context.getBean("pentagon");
+        pentagon1.draw();
+        //example of prototype bean, creates everytime new request arrives
+        Pentagon pentagon2 = (Pentagon) context.getBean("pentagonPrototype");
+        pentagon2.draw();
+        pentagon2.setPointA(new Point(25, 25));
+        pentagon2.draw();
+        Pentagon pentagon3 = (Pentagon) context.getBean("pentagonPrototype");
+        pentagon3.draw();
+
+
     }
 }
