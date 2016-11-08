@@ -61,5 +61,12 @@ public class DrawingApp {
         //Bean Definition Inheritance over written parents data
         Rectangle rectangleWithParentOverWritten = (Rectangle) context.getBean("rectangleWithParentBeanOverwritten");
         rectangleWithParentOverWritten.draw();
+        //Bean with List, Parent, Replace
+        Polygon polygonListWithParentDefault = (Polygon) context.getBean("polygonWithParentReplaceParent");
+        polygonListWithParentDefault.draw();
+        //Bean with List, Parent, Merge
+        Polygon polygonListWithParentMerge = (Polygon) context.getBean("polygonWithParentMerging");
+        polygonListWithParentMerge.draw();
+
     }
 }
