@@ -3,10 +3,6 @@ import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
-import org.springframework.messaging.PollableChannel;
-
-import java.awt.*;
-
 
 /**
  * Created by Aakash on 10/30/2016.
@@ -41,5 +37,38 @@ public class DrawingApp {
         polygon.draw();
         Line line = (Line) context.getBean("line");
         line.draw();
+        //example lof application context aware and Bean Aware
+        Pentagon pentagon = (Pentagon) context.getBean("pentagon");
+        pentagon.draw();
+        //example of singleton bean, always creates beans in start
+        pentagon.setPointA(new Point(25, 25));
+        Pentagon pentagon1 = (Pentagon) context.getBean("pentagon");
+        pentagon1.draw();
+        //example of prototype bean, creates everytime new request arrives
+        Pentagon pentagon2 = (Pentagon) context.getBean("pentagonPrototype");
+        pentagon2.draw();
+        pentagon2.setPointA(new Point(25, 25));
+        pentagon2.draw();
+        Pentagon pentagon3 = (Pentagon) context.getBean("pentagonPrototype");
+        pentagon3.draw();
+        //Bean Definition Inheritance
+        Rectangle rectangleWithParent = (Rectangle) context.getBean("rectangleWithParentBean");
+        rectangleWithParent.draw();
+        //Bean Definition Inheritance over written parents data
+        Rectangle rectangleWithParentOverWritten = (Rectangle) context.getBean("rectangleWithParentBeanOverwritten");
+        rectangleWithParentOverWritten.draw();
+        //Bean with List, Parent, Replace
+        Polygon polygonListWithParentDefault = (Polygon) context.getBean("polygonWithParentReplaceParent");
+        polygonListWithParentDefault.draw();
+        //Bean with List, Parent, Merge
+        Polygon polygonListWithParentMerge = (Polygon) context.getBean("polygonWithParentMerging");
+        polygonListWithParentMerge.draw();
+        //Abstract Parent Bean
+        Polygon abstractParent = (Polygon) context.getBean("polygonAbstractParent");
+        //below line doesnt print anything since abstract no implementation found
+        abstractParent.draw();
+        Polygon polygonListWithAbstractParent = (Polygon) context.getBean("polygonWithAbstractParent");
+        polygonListWithAbstractParent.draw();
+
     }
 }

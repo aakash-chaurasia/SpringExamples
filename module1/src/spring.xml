@@ -83,5 +83,76 @@
         <property name="x" value="29"/>
         <property name="y" value="45"/>
     </bean>
-	<bean id="lineByType" class="Line" autowire="byType"/>
+	<!--<bean id="lineByType" class="Line" autowire="byType"/>-->
+    <bean id="triangleSingleton" class="Triangle" scope="singleton"/>
+    <bean id="trianglePrototype" class="Triangle" scope="prototype"/>
+    <bean id="triangleRequest" class="Triangle" scope="request"/>
+    <bean id="triangleGlobal" class="Triangle" scope="globalSession"/>
+    <bean id="triangleSession" class="Triangle" scope="session"/>
+
+    <bean id="pentagon" class="Pentagon"/>
+    <bean id="pentagonPrototype" class="Pentagon" scope="prototype"/>
+    <!-- Bean definition inheritance normal-->
+    <bean id="parentRectangle" class="Rectangle">
+        <property name="PointA" ref="point2"/>
+        <property name="PointB" ref="zeroPoint"/>
+    </bean>
+    <!-- Bean parent list-->
+    <bean id="polygonParent" class="Polygon">
+        <property name="points">
+            <list>
+                <ref bean="zeroPoint"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="rectangleWithParentBean" class="Rectangle" parent="parentRectangle">
+        <property name="pointC" ref="point3"/>
+        <property name="pointD" ref="zeroPoint"/>
+    </bean>
+    <!-- Bean definition inheritance over writing parent bean-->
+    <bean id="rectangleWithParentBeanOverwritten" class="Rectangle" parent="parentRectangle">
+        <property name="pointB" ref="point4"/>
+        <property name="pointC" ref="point3"/>
+        <property name="pointD" ref="zeroPoint"/>
+    </bean>
+    <!-- Bean definition inheritance over writing parent bean by default-->
+    <bean id="polygonWithParentReplaceParent" class="Polygon" parent="polygonParent">
+        <property name="points">
+            <list>
+                <ref bean="point2"/>
+                <ref bean="point3"/>
+                <ref bean="point4"/>
+                <ref bean="zeroPoint"/>
+            </list>
+        </property>
+    </bean>
+    <!-- Bean definition inheritance merging parent bean by default-->
+    <bean id="polygonWithParentMerging" class="Polygon" parent="polygonParent">
+        <property name="points">
+            <list merge="true">
+                <ref bean="point2"/>
+                <ref bean="point3"/>
+                <ref bean="point4"/>
+                <ref bean="zeroPoint"/>
+            </list>
+        </property>
+    </bean>
+    <!-- Parent Abstract Bean-->
+    <bean id="polygonAbstractParent" class="Polygon" abstract="true">
+        <property name="points">
+            <list>
+                <ref bean="zeroPoint"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="polygonWithAbstractParent" class="Polygon" parent="polygonAbstractParent">
+        <property name="points">
+            <list merge="true">
+                <ref bean="point2"/>
+                <ref bean="point3"/>
+                <ref bean="point4"/>
+                <ref bean="zeroPoint"/>
+            </list>
+        </property>
+    </bean>
 </beans>
