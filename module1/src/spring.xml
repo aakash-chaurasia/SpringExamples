@@ -168,4 +168,6 @@
         <property name="pointB" ref="point2"/>
         <property name="pointC" ref="point3"/>
     </bean>
+    <!--Bean Post Processor-->
+    <bean class="DisplayNameBeanPostProcessor"/>
 </beans>
