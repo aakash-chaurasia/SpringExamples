@@ -82,5 +82,11 @@ public class DrawingApp {
         //substitution form postProcessot and properties
         Line lineProperties = (Line)  context.getBean("lineWithProperties");
         lineProperties.draw();
+
+        //beans for classes with interface
+        shape s = (shape) context.getBean("circle");
+        s.draw();
+        shape s1 = (shape) context.getBean("hexagon");
+        s1.draw();
     }
 }

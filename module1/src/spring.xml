@@ -185,4 +185,21 @@
         <property name="startPoint" ref="zeroPoint"/>
         <property name="endPoint" ref="pointProperties"/>
     </bean>
+
+    <!-- beans with interfaces-->
+    <bean id="circle" class="Circle">
+        <property name="centre" ref="zeroPoint"/>
+    </bean>
+    <bean id="hexagon" class="Hexagon">
+        <property name="points">
+            <list>
+                <ref bean="zeroPoint"/>
+                <ref bean="point2"/>
+                <ref bean="point3"/>
+                <ref bean="point4"/>
+                <ref bean="zeroPoint"/>
+                <ref bean="point3"/>
+            </list>
+        </property>
+    </bean>
 </beans>
