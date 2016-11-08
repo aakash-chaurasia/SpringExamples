@@ -1,7 +1,12 @@
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+
 /**
  * Created by Aakash on 10/30/2016.
  */
-public class Rectangle {
+public class Rectangle implements ApplicationContextAware {
+    private ApplicationContext context = null;
     private Point pointA;
     private Point pointB;
     private Point pointC;
@@ -44,5 +49,10 @@ public class Rectangle {
         System.out.println("PointB " + getPointB().getX() + "," +getPointB().getY());
         System.out.println("PointC " + getPointC().getX() + "," +getPointC().getY());
         System.out.println("PointD " + getPointD().getX() + "," +getPointD().getY());
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        context = applicationContext;
     }
 }
