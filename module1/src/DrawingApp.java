@@ -88,5 +88,7 @@ public class DrawingApp {
         s.draw();
         shape s1 = (shape) context.getBean("hexagon");
         s1.draw();
+        shape s2 = (shape) context.getBean("triangleWithRequired");
+        s2.draw();
     }
 }

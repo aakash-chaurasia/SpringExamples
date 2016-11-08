@@ -202,4 +202,8 @@
             </list>
         </property>
     </bean>
+
+    <!-- Example of Required annotation-->
+    <bean id="triangleWithRequired" class="TriangleWithAutowiring"/>
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
 </beans>
