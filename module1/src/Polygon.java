@@ -18,6 +18,7 @@ public class Polygon {
     private List<Point> points;
 
     public void draw(){
+        System.out.println("Polygon.draw");
         for(Point p : getPoints()){
             System.out.println("point  = " + p.getX() + "," + p.getY());
         }

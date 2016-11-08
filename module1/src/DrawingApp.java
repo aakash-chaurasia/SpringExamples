@@ -3,10 +3,6 @@ import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
-import org.springframework.messaging.PollableChannel;
-
-import java.awt.*;
-
 
 /**
  * Created by Aakash on 10/30/2016.
@@ -67,6 +63,12 @@ public class DrawingApp {
         //Bean with List, Parent, Merge
         Polygon polygonListWithParentMerge = (Polygon) context.getBean("polygonWithParentMerging");
         polygonListWithParentMerge.draw();
+        //Abstract Parent Bean
+        Polygon abstractParent = (Polygon) context.getBean("polygonAbstractParent");
+        //below line doesnt print anything since abstract no implementation found
+        abstractParent.draw();
+        Polygon polygonListWithAbstractParent = (Polygon) context.getBean("polygonWithAbstractParent");
+        polygonListWithAbstractParent.draw();
 
     }
 }

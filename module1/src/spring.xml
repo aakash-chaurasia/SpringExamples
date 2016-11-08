@@ -137,5 +137,22 @@
             </list>
         </property>
     </bean>
-
+    <!-- Parent Abstract Bean-->
+    <bean id="polygonAbstractParent" class="Polygon" abstract="true">
+        <property name="points">
+            <list>
+                <ref bean="zeroPoint"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="polygonWithAbstractParent" class="Polygon" parent="polygonAbstractParent">
+        <property name="points">
+            <list merge="true">
+                <ref bean="point2"/>
+                <ref bean="point3"/>
+                <ref bean="point4"/>
+                <ref bean="zeroPoint"/>
+            </list>
+        </property>
+    </bean>
 </beans>
