@@ -41,5 +41,8 @@ public class DrawingApp {
         polygon.draw();
         Line line = (Line) context.getBean("line");
         line.draw();
+        //example lof application context aware
+        Pentagon pentagon = (Pentagon) context.getBean("pentagon");
+        pentagon.draw();
     }
 }
