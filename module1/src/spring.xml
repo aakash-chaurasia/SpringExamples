@@ -170,4 +170,6 @@
     </bean>
     <!--Bean Post Processor-->
     <bean class="DisplayNameBeanPostProcessor"/>
+    <!--Bean Factory Post Processoer-->
+    <bean class = "DisplayBeanFactoryPostProcessor"/>
 </beans>
