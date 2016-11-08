@@ -76,5 +76,7 @@ public class DrawingApp {
         abstractApplicationContext.registerShutdownHook();
         TriangleAbstract triangle = (TriangleAbstract) abstractApplicationContext.getBean("abstractTriangle");
         triangle.draw();
+        TriangleMyInit triangleMyInit = (TriangleMyInit) abstractApplicationContext.getBean("customTriangle");
+        triangle.draw();
     }
 }
