@@ -84,4 +84,10 @@
         <property name="y" value="45"/>
     </bean>
 	<bean id="lineByType" class="Line" autowire="byType"/>
+    <bean id="triangleSingleton" class="Triangle" scope="singleton"/>
+    <bean id="trianglePrototype" class="Triangle" scope=            "prototype"/>
+    <bean id="triangleRequest" class="Triangle" scope="request"/>
+    <bean id="triangleGlobal" class="Triangle" scope="globalSession"/>
+    <bean id="triangleSession" class="Triangle" scope="session"/>
+
 </beans>
