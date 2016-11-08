@@ -55,7 +55,7 @@ public class DrawingApp {
         pentagon2.draw();
         Pentagon pentagon3 = (Pentagon) context.getBean("pentagonPrototype");
         pentagon3.draw();
-
+        //example of
 
     }
 }

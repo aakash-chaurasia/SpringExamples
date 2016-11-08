@@ -2,9 +2,10 @@
  * Created by Aakash on 11/8/2016.
  */
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-public class Pentagon implements ApplicationContextAware {
+public class Pentagon implements ApplicationContextAware, BeanNameAware {
     private ApplicationContext context = null;
     private Point pointA;
     private Point pointB;
@@ -72,6 +73,12 @@ public class Pentagon implements ApplicationContextAware {
         System.out.println("context set");
         context = applicationContext;
         initialize();
+    }
+
+    //whenever bean is created this method is called
+    @Override
+    public void setBeanName(String name) {
+        System.out.println("bean setter name = " + name);
     }
 }
 
