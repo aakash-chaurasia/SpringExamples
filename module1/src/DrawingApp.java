@@ -78,5 +78,9 @@ public class DrawingApp {
         triangle.draw();
         TriangleMyInit triangleMyInit = (TriangleMyInit) abstractApplicationContext.getBean("customTriangle");
         triangle.draw();
+
+        //substitution form postProcessot and properties
+        Line lineProperties = (Line)  context.getBean("lineWithProperties");
+        lineProperties.draw();
     }
 }

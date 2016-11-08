@@ -172,4 +172,17 @@
     <bean class="DisplayNameBeanPostProcessor"/>
     <!--Bean Factory Post Processoer-->
     <bean class = "DisplayBeanFactoryPostProcessor"/>
+
+    <!-- Initializing values from bean properties fiel-->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="spring.properties"/>
+    </bean>
+    <bean id="pointProperties" class="Point">
+        <property name="x" value="${PointA.pointX}"/>
+        <property name="y" value="${PointA.pointY}"/>
+    </bean>
+    <bean id="lineWithProperties" class="Line">
+        <property name="startPoint" ref="zeroPoint"/>
+        <property name="endPoint" ref="pointProperties"/>
+    </bean>
 </beans>
