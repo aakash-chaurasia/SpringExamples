@@ -92,5 +92,20 @@
 
     <bean id="pentagon" class="Pentagon"/>
     <bean id="pentagonPrototype" class="Pentagon" scope="prototype"/>
+    <!-- Beam definition inheritance normal-->
+    <bean id="parentRectangle" class="Rectangle">
+        <property name="PointA" ref="point2"/>
+        <property name="PointB" ref="zeroPoint"/>
+    </bean>
+    <bean id="rectangleWithParentBean" class="Rectangle" parent="parentRectangle">
+        <property name="pointC" ref="point3"/>
+        <property name="pointD" ref="zeroPoint"/>
+    </bean>
+    <!-- Beam definition inheritance over writing parent bean-->
+    <bean id="rectangleWithParentBeanOverwritten" class="Rectangle" parent="parentRectangle">
+        <property name="pointB" ref="point4"/>
+        <property name="pointC" ref="point3"/>
+        <property name="pointD" ref="zeroPoint"/>
+    </bean>
 
 </beans>

@@ -41,7 +41,7 @@ public class DrawingApp {
         polygon.draw();
         Line line = (Line) context.getBean("line");
         line.draw();
-        //example lof application context aware
+        //example lof application context aware and Bean Aware
         Pentagon pentagon = (Pentagon) context.getBean("pentagon");
         pentagon.draw();
         //example of singleton bean, always creates beans in start
@@ -55,7 +55,11 @@ public class DrawingApp {
         pentagon2.draw();
         Pentagon pentagon3 = (Pentagon) context.getBean("pentagonPrototype");
         pentagon3.draw();
-        //example of
-
+        //Bean Definition Inheritance
+        Rectangle rectangleWithParent = (Rectangle) context.getBean("rectangleWithParentBean");
+        rectangleWithParent.draw();
+        //Bean Definition Inheritance over written parents data
+        Rectangle rectangleWithParentOverWritten = (Rectangle) context.getBean("rectangleWithParentBeanOverwritten");
+        rectangleWithParentOverWritten.draw();
     }
 }
