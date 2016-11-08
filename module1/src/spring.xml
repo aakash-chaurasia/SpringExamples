@@ -138,7 +138,7 @@
         </property>
     </bean>
     <!-- Parent Abstract Bean-->
-    <bean id="polygonAbstractParent" class="Polygon" abstract="true">
+    <bean id="polygonAbstractParent" class="Polygon" >
         <property name="points">
             <list>
                 <ref bean="zeroPoint"/>
@@ -154,5 +154,11 @@
                 <ref bean="zeroPoint"/>
             </list>
         </property>
+    </bean>
+    <!-- Lifecycle Callbacks-->
+    <bean id="abstractTriangle" class="TriangleAbstract">
+        <property name="pointA" ref="zeroPoint"/>
+        <property name="pointB" ref="point2"/>
+        <property name="pointC" ref="point3"/>
     </bean>
 </beans>
