@@ -1,4 +1,5 @@
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by Aakash on 11/8/2016.
@@ -7,7 +8,7 @@ public class RectangleWithAutowire implements shape {
     private Point zeroPoint;
     private Point point2;
     private Point point3;
-    private Point point4;
+    private Point pointD;
 
     public Point getZeroPoint() {
         return zeroPoint;
@@ -33,12 +34,14 @@ public class RectangleWithAutowire implements shape {
         this.point3 = point3;
     }
 
-    public Point getPoint4() {
-        return point4;
+    public Point getPointD() {
+        return pointD;
     }
+    //finds bean with qualifier if there are mutiple beans of same type and no bean present of particular name not working
     @Autowired
-    public void setPoint4(Point point4) {
-        this.point4 = point4;
+    @Qualifier("rectangleRelated")
+    public void setPointD(Point pointD) {
+        this.pointD = pointD;
     }
 
     @Override
@@ -47,6 +50,6 @@ public class RectangleWithAutowire implements shape {
         System.out.println("PointA " + getZeroPoint().getX() + "," +getZeroPoint().getY());
         System.out.println("PointB " + getPoint2().getX() + "," +getPoint2().getY());
         System.out.println("PointC " + getPoint3().getX() + "," +getPoint3().getY());
-        System.out.println("PointD " + getPoint4().getX() + "," +getPoint4().getY());
+        System.out.println("PointD " + getPointD().getX() + "," +getPointD().getY());
     }
 }
