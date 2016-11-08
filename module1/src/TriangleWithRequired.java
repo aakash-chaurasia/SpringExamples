@@ -3,7 +3,7 @@ import org.springframework.beans.factory.annotation.Required;
 /**
  * Created by Aakash on 11/8/2016.
  */
-public class TriangleWithAutowiring implements shape{
+public class TriangleWithRequired implements shape{
     private Point pointA;
     private Point pointB;
     private Point pointC;

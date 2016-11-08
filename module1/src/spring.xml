@@ -204,6 +204,13 @@
     </bean>
 
     <!-- Example of Required annotation-->
-    <bean id="triangleWithRequired" class="TriangleWithAutowiring"/>
+    <bean id="triangleWithRequired" class="TriangleWithRequired">
+        <property name="pointA" ref="zeroPoint"/>
+        <property name="pointB" ref="point2"/>
+        <property name="pointC" ref="point3"/>
+    </bean>
     <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+    <!-- Example of Autowire Bean annotation-->
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+    <bean id="rectangleWithAutowire" class="RectangleWithAutowire"/>
 </beans>
