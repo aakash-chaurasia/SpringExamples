@@ -53,4 +53,12 @@ public class TriangleAbstract implements InitializingBean, DisposableBean {
     public void destroy() throws Exception {
         System.out.println("TriangleAbstract.destroy");
     }
+
+    public void myInit() {
+        System.out.println("TriangleAbstract.myInit");
+    }
+
+    public void cleanUp() {
+        System.out.println("TriangleAbstract.cleanUp");
+    }
 }
