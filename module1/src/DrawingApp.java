@@ -1,6 +1,7 @@
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 
@@ -70,5 +71,12 @@ public class DrawingApp {
         Polygon polygonListWithAbstractParent = (Polygon) context.getBean("polygonWithAbstractParent");
         polygonListWithAbstractParent.draw();
 
+        //Lifecycle callbacks
+        AbstractApplicationContext abstractApplicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        abstractApplicationContext.registerShutdownHook();
+        TriangleAbstract triangle = (TriangleAbstract) abstractApplicationContext.getBean("abstractTriangle");
+        triangle.draw();
+        TriangleMyInit triangleMyInit = (TriangleMyInit) abstractApplicationContext.getBean("customTriangle");
+        triangle.draw();
     }
 }
