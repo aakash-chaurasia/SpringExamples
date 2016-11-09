@@ -1,3 +1,5 @@
+package core;
+
 import org.springframework.beans.factory.annotation.Required;
 
 /**

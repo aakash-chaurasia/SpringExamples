@@ -1,3 +1,5 @@
+package core;
+
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -14,8 +16,8 @@ public class DrawingApp {
         c = this.getClass();
     }
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-        BeanFactory factory = new XmlBeanFactory(new FileSystemResource("module1/src/spring.xml"));
+        ApplicationContext context = new ClassPathXmlApplicationContext("core/spring.xml");
+        BeanFactory factory = new XmlBeanFactory(new FileSystemResource("module1/src/core/spring.xml"));
         /**
          Triangle triangleWith1Constructor = (Triangle) context.getBean("triangleWith1Constructor");
          triangleWith1Constructor.draw();
@@ -72,7 +74,7 @@ public class DrawingApp {
         polygonListWithAbstractParent.draw();
 
         //Lifecycle callbacks
-        AbstractApplicationContext abstractApplicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        AbstractApplicationContext abstractApplicationContext = new ClassPathXmlApplicationContext("core/spring.xml");
         abstractApplicationContext.registerShutdownHook();
         TriangleAbstract triangle = (TriangleAbstract) abstractApplicationContext.getBean("abstractTriangle");
         triangle.draw();
@@ -94,6 +96,9 @@ public class DrawingApp {
         //bean with Autowired
         shape s3 = (shape) context.getBean("rectangleWithAutowire");
         s3.draw();
+        //@Componenet Example
+        shape s4 = (shape) context.getBean("square");
+        s4.draw();
 
     }
 }

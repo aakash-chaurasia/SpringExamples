@@ -1,19 +1,27 @@
+package core;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by Aakash on 11/8/2016.
+ * @Component helps to vavoid bean only one definition.
  */
-public class RectangleWithAutowire implements shape {
+@Component
+public class Square implements shape{
+    @Autowired
     private Point zeroPoint;
+    @Autowired
     private Point point2;
+    @Autowired
     private Point point3;
-    private Point pointD;
+    @Autowired
+    private Point point4;
 
     public Point getZeroPoint() {
         return zeroPoint;
     }
-    @Autowired
+
     public void setZeroPoint(Point zeroPoint) {
         this.zeroPoint = zeroPoint;
     }
@@ -21,7 +29,7 @@ public class RectangleWithAutowire implements shape {
     public Point getPoint2() {
         return point2;
     }
-    @Autowired
+
     public void setPoint2(Point point2) {
         this.point2 = point2;
     }
@@ -29,27 +37,25 @@ public class RectangleWithAutowire implements shape {
     public Point getPoint3() {
         return point3;
     }
-    @Autowired
+
     public void setPoint3(Point point3) {
         this.point3 = point3;
     }
 
-    public Point getPointD() {
-        return pointD;
+    public Point getPoint4() {
+        return point4;
     }
-    //finds bean with qualifier if there are mutiple beans of same type and no bean present of particular name not working
-    @Autowired
-    @Qualifier("rectangleRelated")
-    public void setPointD(Point pointD) {
-        this.pointD = pointD;
+
+    public void setPoint4(Point point4) {
+        this.point4 = point4;
     }
 
     @Override
     public void draw() {
-        System.out.println("RectangleWithAutowire.draw");
+        System.out.println("Square.draw");
         System.out.println("PointA " + getZeroPoint().getX() + "," +getZeroPoint().getY());
         System.out.println("PointB " + getPoint2().getX() + "," +getPoint2().getY());
         System.out.println("PointC " + getPoint3().getX() + "," +getPoint3().getY());
-        System.out.println("PointD " + getPointD().getX() + "," +getPointD().getY());
+        System.out.println("PointD " + getPoint4().getX() + "," +getPoint4().getY());
     }
 }
