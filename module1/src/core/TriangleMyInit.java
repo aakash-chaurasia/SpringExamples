@@ -1,16 +1,15 @@
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
+package core;
 
 /**
  * Created by Aakash on 11/8/2016.
  */
-public class TriangleAbstract implements InitializingBean, DisposableBean {
+public class TriangleMyInit {
     public Point pointA;
     public Point pointB;
     public Point pointC;
 
-    public TriangleAbstract() {
-        System.out.println("Inside Constructor of Abstract Triangle");
+    public TriangleMyInit() {
+        System.out.println("TriangleMyInit.TriangleMyInit");
     }
 
     public Point getPointA() {
@@ -38,27 +37,17 @@ public class TriangleAbstract implements InitializingBean, DisposableBean {
     }
 
     public void draw() {
-        System.out.println("TriangleAbstract.draw");
+        System.out.println("TriangleMyInit.draw");
         System.out.println("PointA " + getPointA().getX() + "," +getPointA().getY());
         System.out.println("PointB " + getPointB().getX() + "," +getPointB().getY());
         System.out.println("PointC " + getPointC().getX() + "," +getPointC().getY());
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("TriangleAbstract.afterPropertiesSet");;
-    }
-
-    @Override
-    public void destroy() throws Exception {
-        System.out.println("TriangleAbstract.destroy");
-    }
-
     public void myInit() {
-        System.out.println("TriangleAbstract.myInit");
+        System.out.println("TriangleMyInit.myInit");
     }
 
     public void cleanUp() {
-        System.out.println("TriangleAbstract.cleanUp");
+        System.out.println("TriangleMyInit.cleanUp");
     }
 }

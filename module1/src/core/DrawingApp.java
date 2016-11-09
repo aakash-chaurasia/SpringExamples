@@ -1,3 +1,5 @@
+package core;
+
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -14,8 +16,8 @@ public class DrawingApp {
         c = this.getClass();
     }
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-        BeanFactory factory = new XmlBeanFactory(new FileSystemResource("module1/src/spring.xml"));
+        ApplicationContext context = new ClassPathXmlApplicationContext("core/spring.xml");
+        BeanFactory factory = new XmlBeanFactory(new FileSystemResource("module1/src/core/spring.xml"));
         /**
          Triangle triangleWith1Constructor = (Triangle) context.getBean("triangleWith1Constructor");
          triangleWith1Constructor.draw();
@@ -72,11 +74,43 @@ public class DrawingApp {
         polygonListWithAbstractParent.draw();
 
         //Lifecycle callbacks
-        AbstractApplicationContext abstractApplicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        AbstractApplicationContext abstractApplicationContext = new ClassPathXmlApplicationContext("core/spring.xml");
         abstractApplicationContext.registerShutdownHook();
         TriangleAbstract triangle = (TriangleAbstract) abstractApplicationContext.getBean("abstractTriangle");
         triangle.draw();
         TriangleMyInit triangleMyInit = (TriangleMyInit) abstractApplicationContext.getBean("customTriangle");
         triangle.draw();
+
+        //substitution form postProcessot and properties
+        Line lineProperties = (Line)  context.getBean("lineWithProperties");
+        lineProperties.draw();
+
+        //beans for classes with interface
+        shape s = (shape) context.getBean("circle");
+        s.draw();
+        shape s1 = (shape) context.getBean("hexagon");
+        s1.draw();
+        //bean with required variables
+        shape s2 = (shape) context.getBean("triangleWithRequired");
+        s2.draw();
+        //bean with Autowired
+        shape s3 = (shape) context.getBean("rectangleWithAutowire");
+        s3.draw();
+        //@Component Example
+        shape s4 = (shape) context.getBean("square");
+        s4.draw();
+
+        //@Service Example
+        shape s5 = (shape) context.getBean("squareService");
+        s5.draw();
+
+        //@Repository Example
+        shape s6 = (shape) context.getBean("squareRepo");
+        s6.draw();
+
+        //@Controller Example
+        shape s7 = (shape) context.getBean("squareController");
+        s7.draw();
+
     }
 }
