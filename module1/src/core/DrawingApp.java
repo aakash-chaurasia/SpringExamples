@@ -96,9 +96,21 @@ public class DrawingApp {
         //bean with Autowired
         shape s3 = (shape) context.getBean("rectangleWithAutowire");
         s3.draw();
-        //@Componenet Example
+        //@Component Example
         shape s4 = (shape) context.getBean("square");
         s4.draw();
+
+        //@Service Example
+        shape s5 = (shape) context.getBean("squareService");
+        s5.draw();
+
+        //@Repository Example
+        shape s6 = (shape) context.getBean("squareRepo");
+        s6.draw();
+
+        //@Controller Example
+        shape s7 = (shape) context.getBean("squareController");
+        s7.draw();
 
     }
 }
